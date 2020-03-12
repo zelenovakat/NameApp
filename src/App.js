@@ -67,8 +67,10 @@ const MainWrapper = styled.div`
 const MainWrapKids = styled.div`
   display: flex;
   margin: 10px;
-  border: 2px solid black;
+  border: 2px double black;
   padding: 10px 5px;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
 `
 const Title = styled.h2`
   display: flex;
@@ -79,7 +81,7 @@ const StyledRow = styled.p`
 `
 const MainWrapChildren = styled.div`
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
 `
 const StyledLable = styled.h2`
   display: flex;
@@ -98,9 +100,9 @@ const StyleInput = styled.input`
   border: 3px solid black;
   padding: 20px;
   font-size: 16px;
-  font-weight: 100;
   padding: 10px;
   border-radius: 10px;
   margin-left: 25px;
   margin-bottom: 10px;
+  width: 80%;
 `
