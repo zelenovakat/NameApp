@@ -1,3 +1,7 @@
+// ref={register({
+//   validate: value => moment(value).isAfter(trip.from) && moment(value).isBefore(trip.to),
+// })}
+
 import React, { useState } from "react"
 import { people } from "./People"
 import styled from "styled-components"
@@ -5,19 +9,26 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faTimesCircle } from "@fortawesome/free-solid-svg-icons"
 import "./App.css"
 import useLocalStorage from "./helper/components/UseLocalStoradge"
-import { removeFavoriteKids } from "./RemoveFavoriteKids"
+
 function startsWith(str, word) {
   return str.toLowerCase().lastIndexOf(word, 0) === 0
 }
 
 function App() {
   const [kids, setKids] = useState(people)
-
   const [favoriteKids, setFavoriteKids] = useLocalStorage("favoriteKids", [])
 
   const handleOnClick = name => {
     const updatedKids = [...favoriteKids, name]
     setFavoriteKids(updatedKids)
+  }
+
+  const removeFavoriteKids = favoriteChildId => {
+    console.log(favoriteChildId)
+    const favoriteKidsWithoutOne = favoriteKids.filter(
+      favoriteChild => favoriteChild.id !== favoriteChildId
+    )
+    setFavoriteKids(favoriteKidsWithoutOne)
   }
 
   const mappedNameOfChildren = kids.map(favoriteKids => {
