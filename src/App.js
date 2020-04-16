@@ -15,19 +15,19 @@ function App() {
 
   const [favoriteKids, setFavoriteKids] = useLocalStorage("favoriteKids", [])
 
-  const handleOnClick = name => {
+  const handleOnClick = (name) => {
     const updatedKids = [...favoriteKids, name]
     setFavoriteKids(updatedKids)
   }
-  const removeFavoriteKids = favoriteChildId => {
+  const removeFavoriteKids = (favoriteChildId) => {
     console.log(favoriteChildId)
     const favoriteKidsWithoutOne = favoriteKids.filter(
-      favoriteChild => favoriteChild.id !== favoriteChildId
+      (favoriteChild) => favoriteChild.id !== favoriteChildId
     )
     setFavoriteKids(favoriteKidsWithoutOne)
   }
 
-  const mappedNameOfChildren = kids.map(favoriteKids => {
+  const mappedNameOfChildren = kids.map((favoriteKids) => {
     return (
       <MainDiv
         key={favoriteKids.id}
@@ -37,7 +37,7 @@ function App() {
       </MainDiv>
     )
   })
-  const mappedFavoriteKids = favoriteKids.map(favoriteChild => {
+  const mappedFavoriteKids = favoriteKids.map((favoriteChild) => {
     return (
       <MainWrapper
         key={favoriteChild.id}
@@ -53,7 +53,7 @@ function App() {
   })
 
   function handleChange(event) {
-    const filteredPeople = people.filter(kid => {
+    const filteredPeople = people.filter((kid) => {
       return startsWith(kid.name, event.target.value)
     })
     setKids(filteredPeople)
